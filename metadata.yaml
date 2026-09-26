@@ -1,0 +1,7 @@
+name: astrbot_plugin_error_restart_chat
+display_name: 超限回复重开
+desc: 限制 LLM 单次回复字数，超限自动用相同配置（系统提示词/提示词）重新生成，超限的坏回复不会写入会话历史。
+version: v1.0.0
+author: yonglanws
+repo: https://github.com/yonglanws/astrbot_plugin_error_restart_chat
+astrbot_version: ">=4.24.1,<5"

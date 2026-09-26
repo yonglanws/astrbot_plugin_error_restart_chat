@@ -1,0 +1,33 @@
+{
+  "max_output_chars": {
+    "description": "单次回复最大字数（字符数），超过则自动重新生成",
+    "type": "int",
+    "default": 500,
+    "hint": "统计的是模型回复的纯文本长度。设为 0 表示禁用本插件"
+  },
+  "max_retries": {
+    "description": "超限后重新生成的最大尝试次数",
+    "type": "int",
+    "default": 2,
+    "hint": "每次重试都使用与原请求完全相同的系统提示词、上下文和提示词"
+  },
+  "retry_hint": {
+    "description": "重试时附加到原提示词末尾的提醒（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "留空表示与原请求完全一致。若模型反复超限，可填写类似：\\n\\n（系统提醒：请把回答控制在 500 字以内）"
+  },
+  "on_fail": {
+    "description": "重试全部失败后的处理方式",
+    "type": "string",
+    "options": ["discard", "keep"],
+    "default": "discard",
+    "hint": "discard=丢弃本次回复，不发送也不写入历史，并发送提示语；keep=照常发送原回复"
+  },
+  "fail_notice": {
+    "description": "丢弃回复时发送的提示语",
+    "type": "string",
+    "default": "⚠️ 本次回复超出字数限制，自动重试后仍失败，本次回复已被丢弃。",
+    "hint": "仅 on_fail 为 discard 时生效"
+  }
+}
